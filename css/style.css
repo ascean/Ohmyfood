@@ -17,7 +17,7 @@ h2 {
 }
 
 h3, .h3 {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 p {
@@ -31,62 +31,210 @@ p {
   justify-content: center;
   align-items: center;
   padding: 20px auto;
-  height: 50px;
+  height: 60px;
   border-bottom: 3px solid rgb(200, 200, 200);
 }
 #logo img {
   width: 150px;
 }
 
-#localisation {
+#top {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f8f8;
-  gap: 10px;
+  gap: 16px;
   flex-direction: column;
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   margin-bottom: 40px;
+  background-color: rgb(246, 246, 246);
 }
-#localisation__container {
+#top__container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 10px;
-  height: 45px;
-  background-color: rgb(240, 240, 240);
-  margin-bottom: 20px;
+  height: 55px;
+  background-color: rgb(234, 234, 234);
+  margin-bottom: 30px;
 }
-#localisation p {
+#top p {
   margin: 10px 5%;
 }
-
-.localisation__container__title {
-  font-weight: 700;
-  margin: 10px 0;
-  color: rgb(83, 83, 83);
+#top h3 {
+  color: #4d4d4d;
 }
-
-.btn__valid {
+#top__btn--search {
+  width: 60%;
   color: white;
+  background-color: #FF79DA;
   border: none;
   outline: none;
-  background-color: #FF79DA;
-  padding: 18px;
+  margin-top: 20px;
+  padding: 15px;
   border-radius: 50px;
-  width: 60%;
+  box-shadow: 0px 5px 10px rgb(200, 200, 200);
 }
 
-#working {
-  padding: 10px;
+.border {
+  border: 1px solid green;
 }
 
-#working__option {
+.container {
+  padding: 30px 20px;
+}
+
+#working__items {
+  margin: 30px 10px;
+  display: grid;
+  gap: 32px;
+}
+
+.working__item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 50px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(246, 246, 246);
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgb(200, 200, 200);
+}
+
+.working__item__number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, 50%);
+  width: 30px;
+  height: 30px;
+  margin: 0px auto;
+  background-color: #9356DC;
+  border-radius: 50px;
+}
+.working__item__number > p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.working__item__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  height: 50px;
+  margin-left: 20px;
+}
+.working__item__btn__label {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.working__item__btn__icon {
+  font-size: 25px;
+  color: grey;
+}
 
-/*# sourceMappingURL=style.css.map */
+#restaurant__container {
+  background-color: rgb(246, 246, 246);
+}
+
+#restaurants {
+  margin: 30px 0px;
+  display: grid;
+  gap: 32px;
+}
+
+.restaurant__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0px 5px 10px rgb(200, 200, 200);
+}
+.restaurant__item__img {
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+.restaurant__item__img__btnnew {
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: 900;
+  transform: translate(-20%, 50%);
+  background-color: #99E2D0;
+  padding: 6px 12px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #2c9c81;
+  font-weight: 700;
+}
+.restaurant__item img {
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.restaurant__item__infos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+.restaurant__item__infos__title > h3 {
+  margin-bottom: 5px;
+  color: black;
+}
+.restaurant__item__infos__title > p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.restaurant__item__infos__favori {
+  font-size: 25px;
+  color: #4d4d4d;
+  margin-right: 20px;
+}
+
+footer {
+  background-color: #4d4d4d;
+  color: white;
+  padding: 30px;
+}
+
+#restaurant-name {
+  font-family: Shrikhand;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+nav ul li {
+  padding-bottom: 10px;
+}
+nav ul li > .menu-icon i {
+  width: 25px;
+}
+
+section {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
