@@ -8,17 +8,22 @@
 }
 
 h1 {
-    font-size: 24px;
-    margin: 0 5%;
+    font-size: 28px;
+    font-weight: 500;
 }
 h2 {
     font-size: 24px;
 }
 h3, .h3 {
     font-size: 17px;
+    color: lighten(#000000, 30%);
 }
 p {
     font-size: 18px;
     font-weight: 300;
     color: $font-color;
+}
+
+a {
+    text-decoration: none;
 }

@@ -1,39 +1,85 @@
-$primary-color:#9356DC;
-$secondary-color: #FF79DA; 
-$tertiary-color:#99E2D0;
-$back-color:rgb(240, 240, 240);
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+$back-color: rgb(240, 240, 240);
 $font-color: rgb(83, 83, 83);
+$degrade-color:linear-gradient(#FF79DA, #9356DC);
+$font-logo: "Shrikhand";
+$font-text: "Roboto";
 
-$font-logo:"Shrikhand";
-$font-text:"Roboto";
 
-@mixin flex {
-    display:flex; 
-    justify-content:center;
+@mixin icon-color {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image:$degrade-color;
+}
+
+@mixin flex ($direction: row, $justify: center, $align: center,$gap:20px) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap:$gap;
+}
+
+;
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-};
+}
+
+;
+
+@mixin flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+;
+
 @mixin flex-left {
-    display:flex; 
-    justify-content:left;
+    display: flex;
+    justify-content: left;
     align-items: center;
-};
+}
+
+;
 
 @mixin flex-column {
-    display:flex; 
+    display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-};
+}
+
+;
 
 @mixin grid {
     display: grid;
-    gap: 32px;
     //à voir pour desktop
     //grid-template-columns: repeat(3,200px); 
 }
 
-@mixin working-btn--shadow ($color:rgb(234, 234, 234)){
+@mixin working-btn--shadow ($color: rgb(234, 234, 234)) {
     box-shadow: 0px 5px 10px $color;
 }
 
+@mixin button {
+    
+    width: 60%;
 
+    color: white;
+    background: $degrade-color;
+
+    border: none;
+    outline: none;
+
+    margin: 0 auto;
+    padding: 15px;
+
+    border-radius: 50px;
+}
