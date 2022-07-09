@@ -1,6 +1,32 @@
 section {
-    max-width: 1440px;
+    max-width: 1920px;
     min-width: 400px;
     margin: 0 auto;
     width:100%;
+}
+
+footer {
+    background-color:darken(grey,20%);
+    color: white;
+    padding: 30px;
+    height: 200px;
+    
+    #footer-restaurant-name {
+        font-family: $font-logo;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    nav ul li{
+        padding-bottom:10px;
+        
+        > .footer-icon i {
+            width: 25px;
+        }
+
+        & a {
+            color:white;
+            cursor: pointer;
+        }
+    }
 }

@@ -4,7 +4,7 @@ header {
     grid-template-columns: 1fr 3fr 1fr;
     justify-content: center;
     align-items: center;
-    border-bottom: 3px solid rgb(200, 200, 200);
+    border-bottom: 3px solid $shadow-color;
     padding: 0px 20px;
 }
 .back {
@@ -25,365 +25,68 @@ header {
     }
 }
 
-// PAGES MENUS
-#menu-container {
-    @include flex(column, center, center, 0px);
-
-    &-img {
-
-        // compenser la border du header visible dans le menu
-        transform: translateY(-2px);
-
-        &>img {
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-}
-
-form {
-    background-color:rgb(246, 246, 246);
-    width: 100%;
-    padding:15px 20px 60px;
-
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-
-    transform: translateY(-40px);
-
-    & .btn-container {
-        @include flex;
-    }
-    & button {
-        @include button;
-        @include working-btn--shadow(rgb(200, 200, 200));
-    }
-}
-
-#menu-title{
-    @include flex(row, left);
-    position: relative;
-    & > h1 {
-        font-family: $font-logo;
-    }
-    & i {
-        font-size: 30px;
-        margin: 0 auto;
-    }
-}
-
-//effet de survol du coeur
-.heart-empty {
-    color:lighten(black,30%);
-}
-
-.heart-empty, .heart-full {
-    position: absolute;
-    right: 20px;
+//BOUTONS BICOLORES
+.btn-degrade {
+    display: block;
     cursor: pointer;
-}
-
-.heart-full {
-    @include icon-color;
-    opacity:0;
-
+    @include btn-degrade-color;
+    @include btn--shadow($shadow-color);
+    
     &:hover {
-        opacity: 1;
+        filter: brightness(1.2);
+        @include btn--shadow(rgb(90, 90, 90));
     }
 }
 
-.menu-container-block {
-    margin-bottom: 30px;
-    
-    h2 {
-        text-transform: uppercase;
-        font-weight: 300;
-        font-size: 18px;
-        padding: 5px 0;
-        margin: 10px 0 0px;
-    }
-    
-    //ligne sous les catégories du menu
-    hr {
-        border: none;
-        border-top: 3px solid $tertiary-color;
-        height: 5px;
-        margin-bottom: 10px;
-        width:50px;
-    }
-}
+//COEURS
+.heart {
+    @include flex(column, center, center, 0);
+    position: relative;
+    height: 32px;
+    width: 32px;
 
-.menu-container-block-items {
-    @include flex(column, center, center, 16px);
-    
-    .menu-container-block-item {
-        @include flex(row,space-between,center,0px);
+    .heart-empty {
+        height: 100%;
         width: 100%;
-        height: 60px;
-        margin: 0;
+        position: absolute;
+        @include flex;
+        z-index: 3;
 
+        & i {
+            font-size: 30px;
+        }
+
+        &:hover+.heart-blanc {
+            height: 0%;
+        }
+    }
+
+    .heart-blanc {
         background-color: white;
-        border-radius: 20px;
-        
-        @include working-btn--shadow;
-    
-        .infos {
-            @include flex(column, space-around,flex-start,5px);
-            padding: 14px;
-            height: 60px;
-            width:80%;
-
-            & h3 {
-                color: black;
-                padding-bottom: 0px;
-            }
-            
-            & p {
-                font-size:0.95rem;
-            }
-        }
-
-        .infos-supp {
-            @include flex(row, right,center,0px);
-            & .price {
-                cursor: pointer;
-                
-                padding-bottom:14px;
-                
-                color: #000000;
-                font-size:0.95rem;
-                font-weight: 600;
-                
-                text-align: center;
-                line-height: 74px;
-                width: 60px;
-                height: 60px;
-                
-                &:hover +.check {
-                    @include flex;
-                }
-                
-            }
-            & .check {
-                display: none;
-                
-                background-color: lighten(#2c9c81,35%);
-                border-top-right-radius: 15px;
-                border-bottom-right-radius: 15px;
-                
-                width:60px;
-                height: 60px;
-                justify-self: right;
-                
-                
-                & i {
-                    margin: 0 auto;
-                    background-color: white;
-                    color: lighten(#2c9c81,40%);
-                    border-radius: 25px;
-                    
-                    width: 20px;
-                    height: 20px;
-                    text-align: center;
-                    line-height: 20px;
-                }
-            }
-        }
-    }
-}
-
-
-// PAGE ACCUEIL
-#top {
-    
-    @include flex(column, center, center, 16px) ;
-    text-align: center;
-    padding-bottom: 60px;
-    margin-bottom: 40px;
-    background-color: rgb(246, 246, 246);
-    
-    &__container {
-        @include flex(row, center,center,10px);
+        height: 100%;
         width: 100%;
-        height: 55px;
-        background-color: rgb(234, 234, 234);
-        margin-bottom: 30px
-    };
-    h1 {
-        margin: 0 5%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        transform: height;
+        transition: all .5s;
+        
+        &.form {
+            background-color: $form-color;
+        }
     }
 
-    p{
-        margin: 10px 5%;
-    }    
 
-    &__btn--search {
-        @include button;
-        @include working-btn--shadow(rgb(200, 200, 200));
-    }
-}
-
-.container {
-    padding: 10px 20px;
-    margin-bottom: 30px;    
-}
-
-#working__items {
-    margin: 30px 10px;
-    @include flex (column);
-    
-    .working__item {
-        @include flex(row,left,center);
-        
-        margin: 0 auto;
-        padding:10px 20px;
-        
-        position: relative;
+    .heart-full {
+        height: 100%;
         width: 100%;
-        height: 80px;
+        position: absolute;
+        @include flex;
+        z-index: 1;
 
-        background-color: rgb(246, 246, 246);
-        border-radius: 20px;
-        
-        @include working-btn--shadow(rgb(200, 200, 200));
-    
-        &__number {
-            @include flex;
-        
-            position: absolute;
-            left: 0;
-            top: 0;   
-            transform: translate(-50%, 25px);
-            
-            width:30px;
-            height: 30px;
-            
-            margin: 0px auto;
-            
-            background-color: $primary-color;
-            border-radius: 50px;
-            
-            >p {
-                color: white;
-                font-size: 14px;
-                text-align: center;
-                font-weight: 400;
-            }
-        }
-        
-        &__btn {
-            @include flex(row, center, center, 16px);
-        
-            height: 50px;
-        
-            margin-left: 20px;
-        
-            &__label {
-                @include flex;
-            }
-            
-            &__icon{
-                font-size: 25px;
-                color: grey;
-                width: 30px;
-            }
-        }
-    }   
-}
-
-
-#restaurants__container {
-    background-color: rgb(246, 246, 246);
-
-}
-
-#restaurants {
-    margin: 30px 0px;
-    @include flex(column,center, center,32px);
-}
-
-.restaurant__item {
-    @include flex(column, center, center, 0px);
-    background-color:white;
-    border-radius: 20px;
-    margin: 0 auto;
-    width: 100%;
-    @include working-btn--shadow(rgb(200, 200, 200));
-    
-    &__img {
-        position: relative;
-        width: 100%;
-        height:250px;
-        
-        &__btnnew {
-            top: 0;
-            right: 0;
-            position: absolute;
-            z-index: 900;
-            transform: translate(-20%,50%);
-            background-color: $tertiary-color;
-            
-            padding: 6px 12px;
-            border: none;
-            outline: none;
-            border-radius: 5px;
-        
-            color: darken($tertiary-color,35%);
-            font-weight: 700;
-        }
-    }
- 
-    & img {
-        object-fit: cover;
-        width: 100%;
-        height:100%;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-    }
-    
-    &__infos {
-        @include flex(row, space-between);
-        width: 100%;
-        padding: 10px 20px;
-        position: relative;
-        
-        &__title>h3 {
-            margin-bottom: 5px;
-            color: black;
-        }
-
-        &__title>p {
-            font-size: 1rem;
-            font-weight: 300;
-        }
-        
-        &__favori {
-            @include flex;
-            font-size:25px;
-        }
-        
-        
-    }
-}
-
-footer {
-    background-color:darken(grey,20%);
-    color: white;
-    padding: 30px;
-    transform: translateY(-40px);
-    height: 200px;
-    
-    #footer-restaurant-name {
-        font-family: $font-logo;
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
-    
-    nav ul li{
-        padding-bottom:10px;
-        
-        > .menu-icon i {
-            width: 25px;
+        & i {
+            font-size: 30px;
+            @include icon-color;
         }
     }
 }
