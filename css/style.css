@@ -60,6 +60,79 @@ footer nav ul li a {
   cursor: pointer;
 }
 
+.spinner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  background: rgb(246, 246, 246);
+  border: 3px solid transparent;
+  animation: hide-spinner 3s forwards;
+  opacity: 0.9;
+}
+.spinner-container .spinner {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border: 3px solid transparent;
+  border-top-color: #9356DC;
+  border-radius: 50%;
+  animation: show-spinner 2s linear infinite;
+}
+.spinner-container .spinner:before, .spinner-container .spinner:after {
+  content: "";
+  position: absolute;
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+.spinner-container .spinner:before {
+  border-top-color: #FF79DA;
+  top: -12px;
+  bottom: -12px;
+  left: -12px;
+  right: -12px;
+  animation: show-spinner 3s linear infinite;
+}
+.spinner-container .spinner:after {
+  border-top-color: #99E2D0;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  animation: show-spinner 4s linear infinite;
+}
+
+@keyframes show-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes hide-spinner {
+  0% {
+    opacity: 0.9;
+    height: 100vh;
+  }
+  90% {
+    opacity: 0.9;
+    height: 100vh;
+  }
+  95% {
+    opacity: 0.95;
+    height: 100vh;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}
 header {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -96,21 +169,39 @@ header {
 }
 
 .btn-degrade {
+  position: relative;
+  z-index: 1;
   display: block;
   cursor: pointer;
   width: 60%;
+  margin: 0 auto;
+  padding: 15px;
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
   border: none;
   outline: none;
-  margin: 0 auto;
-  padding: 15px;
   border-radius: 50px;
   box-shadow: 0px 5px 10px rgb(200, 200, 200);
 }
-.btn-degrade:hover {
+.btn-degrade:hover::after {
+  opacity: 1;
+}
+.btn-degrade::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+  opacity: 0;
+  color: white;
+  background: linear-gradient(#FF79DA, #9356DC);
+  border: none;
+  outline: none;
+  border-radius: 50px;
   filter: brightness(1.2);
-  box-shadow: 0px 5px 10px rgb(90, 90, 90);
+  transform: opacity 250ms;
 }
 
 .heart {
@@ -133,6 +224,7 @@ header {
   align-items: center;
   gap: 20px;
   z-index: 3;
+  color: black;
 }
 .heart .heart-empty i {
   font-size: 30px;
@@ -147,7 +239,6 @@ header {
   position: absolute;
   z-index: 2;
   top: 0;
-  transform: height;
   transition: all 0.5s;
 }
 .heart .heart-blanc.form {
@@ -401,6 +492,18 @@ form {
 .restaurant-container {
   margin-bottom: 30px;
 }
+.restaurant-container .meal-type {
+  animation: fadein 1000ms;
+}
+.restaurant-container .restaurant-item:nth-child(1) {
+  animation: fadein 2000ms;
+}
+.restaurant-container .restaurant-item:nth-child(2) {
+  animation: fadein 3000ms;
+}
+.restaurant-container .restaurant-item:nth-child(3) {
+  animation: fadein 4000ms;
+}
 .restaurant-container h2 {
   text-transform: uppercase;
   font-weight: 300;
@@ -424,6 +527,8 @@ form {
   gap: 16px;
 }
 .restaurant-items .restaurant-item {
+  position: relative;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -436,7 +541,7 @@ form {
   width: 100%;
   margin: 0;
 }
-.restaurant-items .restaurant-item .meal {
+.restaurant-items .restaurant-item .meal-left {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -444,13 +549,53 @@ form {
   gap: 5px;
   padding: 14px;
   width: 80%;
+  max-width: 344px;
+  white-space: nowrap;
+}
+.restaurant-items .restaurant-item .meal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  height: 60px;
+  width: 100%;
+  transition: width 200ms;
 }
 .restaurant-items .restaurant-item .meal h3 {
   color: black;
   padding-bottom: 0px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .restaurant-items .restaurant-item .meal p {
   font-size: 0.95rem;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.restaurant-items .restaurant-item .meal:hover {
+  width: 90%;
+}
+.restaurant-items .restaurant-item .meal:hover + .check {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  transform: translateX();
+  background-color: #98e2d0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 15%;
+}
+.restaurant-items .restaurant-item .meal:hover + .check > i {
+  background-color: white;
+  color: #ace8d9;
+  border-radius: 25px;
+  width: 20px;
+  animation: rotate-check 300ms;
 }
 .restaurant-items .restaurant-item .price {
   cursor: pointer;
@@ -463,40 +608,47 @@ form {
   height: 100%;
   padding-bottom: 14px;
 }
-.restaurant-items .restaurant-item .price:hover + .check {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  transform: translateX();
-  background-color: #98e2d0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  width: 15%;
-}
-.restaurant-items .restaurant-item .price:hover + .check i {
-  background-color: white;
-  color: #ace8d9;
-  border-radius: 25px;
-  width: 20px;
-}
 .restaurant-items .restaurant-item .check {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  transition: all 500ms;
   width: 0px;
   height: 100%;
+  transition: width 200ms;
 }
 .restaurant-items .restaurant-item .check i {
   color: transparent;
-  transition-delay: 50ms;
   text-align: center;
   line-height: 20px;
   margin: 0 auto;
   width: 20px;
   height: 20px;
+}
+
+@keyframes rotate-check {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

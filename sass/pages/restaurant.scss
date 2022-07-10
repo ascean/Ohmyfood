@@ -40,6 +40,28 @@ form {
 .restaurant-container {
     margin-bottom: 30px;
 
+    .meal-type {
+
+        animation: fadein 1000ms;
+    }
+
+    .restaurant-item:nth-child(1) {
+        animation: fadein 2000ms;
+    }
+
+    .restaurant-item:nth-child(2) {
+        animation: fadein 3000ms;
+    }
+
+    .restaurant-item:nth-child(3) {
+        animation: fadein 4000ms;
+    }
+
+
+
+
+
+
     h2 {
         text-transform: uppercase;
         font-weight: 300;
@@ -63,27 +85,68 @@ form {
     @include flex(column, center, center, 16px);
 
     .restaurant-item {
+        position: relative;
+
+        cursor: pointer;
         @include flex(row, space-between, center, 0px);
         @include btn--shadow;
+
         background-color: white;
         border-radius: 10px;
+
         height: 60px;
         width: 100%;
         margin: 0;
 
 
-        .meal {
+        .meal-left {
             @include flex(column, space-around, flex-start, 5px);
             padding: 14px;
             width: 80%;
+            max-width: 344px;
+            white-space: nowrap;
+        }
+
+        .meal {
+            @include flex(row, space-between, center, 0);
+            height: 60px;
+            width: 100%;
+            transition: width 200ms;
 
             & h3 {
                 color: black;
                 padding-bottom: 0px;
+                width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
 
             & p {
                 font-size: 0.95rem;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &:hover {
+                width: 90%;
+            }
+
+            &:hover+.check {
+                @include flex(row, center, center, 0);
+                transform: translateX();
+                background-color: lighten(#2c9c81, 35%);
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                width: 15%;
+
+                &>i {
+                    background-color: white;
+                    color: lighten(#2c9c81, 40%);
+                    border-radius: 25px;
+                    width: 20px;
+                    animation: rotate-check 300ms;
+                }
             }
         }
 
@@ -99,33 +162,17 @@ form {
             height: 100%;
             padding-bottom: 14px;
 
-            &:hover+.check {
-                @include flex(row, center, center, 0);
-                transform: translateX();
-                background-color: lighten(#2c9c81, 35%);
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                width: 15%;
-
-                & i {
-                    background-color: white;
-                    color: lighten(#2c9c81, 40%);
-                    border-radius: 25px;
-                    width: 20px;
-                }
-            }
 
         }
 
         .check {
             @include flex;
-            transition: all 500ms;
             width: 0px;
             height: 100%;
+            transition: width 200ms;
 
             & i {
                 color: transparent;
-                transition-delay: 50ms;
                 text-align: center;
                 line-height: 20px;
                 margin: 0 auto;
@@ -135,4 +182,38 @@ form {
         }
     }
 
+}
+
+//animation rotation du check de menu
+@keyframes rotate-check {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//animation fondu de chaque menu
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

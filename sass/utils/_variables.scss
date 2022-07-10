@@ -9,6 +9,12 @@ $font-logo: "Shrikhand";
 $font-text: "Roboto";
 $shadow-color:rgb(200, 200, 200);
 
+@mixin position ($position-number:0) {
+    top:$position-number;
+    bottom:$position-number;
+    left:$position-number;
+    right:$position-number;
+}
 
 @mixin icon-color {
     color: transparent;
@@ -36,17 +42,9 @@ $shadow-color:rgb(200, 200, 200);
 }
 
 @mixin btn-degrade-color {
-    
-    width: 60%;
-
     color: white;
-
     background: $degrade-color;
     border: none;
     outline: none;
-
-    margin: 0 auto;
-    padding: 15px;
-
     border-radius: 50px;
 }
