@@ -5,6 +5,7 @@
     right:$position-number;
 }
 
+//couleur dégradé pour icone coeur
 @mixin icon-color {
     color: transparent;
     background-clip: text;
@@ -20,15 +21,13 @@
     gap:$gap;
 }
 
-@mixin grid {
-    display: grid;
-}
-
+//ombre portée
 @mixin btn--shadow ($color: $shadow-color) {
     box-shadow: 0px 5px 10px $color;
 }
 
-@mixin btn-degrade-color {
+//bouton dégradé
+@mixin btn--degrade-color {
     color: white;
     background: $degrade-color;
     border: none;

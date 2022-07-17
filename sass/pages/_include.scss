@@ -1,0 +1,61 @@
+//COEURS
+.heart {
+    @include flex(column, center, center, 0);
+    position: relative;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    
+    .heart--empty {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        @include flex;
+        z-index: 3;
+        color:black;
+        opacity: 1;
+        transition: opacity 0.9s;
+        font-size: 30px;
+
+        //disparition du coeur vide au survol
+        &:hover {
+            opacity: 0;
+        }
+
+        //au survol du coeur vide, on réduit la hauteur du div blanc
+        //pour laisser apparaitre le coeur de couleur
+        &:hover+.heart--white {
+            height: 0%;
+        }
+    }
+
+    //div blanc qui cache le coeur de couleur
+    .heart--white {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        transition: all .5s;
+
+        //spécifique pages restaurant
+        &.form-color {
+            background-color: $form-color;
+        }
+    }
+
+    //coeur de couleur
+    .heart--full {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        @include flex;
+        z-index: 1;
+        font-size: 30px;
+        @include icon-color;
+    }
+}
+
+
+

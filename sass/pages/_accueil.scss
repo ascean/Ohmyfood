@@ -31,7 +31,7 @@
 }
 
 #function-items {
-    margin: 30px 10px;
+    margin: 30px 10px 30px 15px;
     @include flex (column);
     
     .function-item {
@@ -48,7 +48,7 @@
         background-color: $form-color;
         border-radius: 20px;
         
-        @include btn--shadow();
+        @include btn--shadow;
         
         .function-number {
             @include flex;
@@ -95,7 +95,7 @@
 
         &:hover {
             background-color:lighten($primary-color,30%);
-            
+            @include btn--shadow(darken($shadow-color, 50%));
             & .function-btn-icon {
                 color:$primary-color;
                 
@@ -105,12 +105,12 @@
         
 }
 
-#restaurant-items {
+#meal-items {
     margin: 30px 0px;
     @include flex(column,center, center,32px);
 
 
-    .restaurant-item {
+    .meal-item {
         @include flex(column, center, center, 0px);
         background-color:white;
         border-radius: 20px;
@@ -127,6 +127,7 @@
             width: 100%;
             height:250px;
             
+            //bouton nouveau
             > .restaurant-btnnew {
                 top: 0;
                 right: 0;
@@ -134,6 +135,7 @@
                 z-index: 900;
                 transform: translate(-20%,50%);
                 background-color: $tertiary-color;
+                @include btn--shadow($shadow-color);
                 
                 padding: 6px 12px;
                 border: none;
@@ -143,10 +145,12 @@
                 color: darken($tertiary-color,35%);
                 font-weight: 700;
             }
+
+            //design survol bouton nouveau
             > .restaurant-btnnew:hover{
                 cursor: pointer;
                 filter: brightness(1.2);
-
+                @include btn--shadow(darken($shadow-color,50%));
             }
         }
     
@@ -181,5 +185,85 @@
             
             
         }
+    }
+}
+
+//SPINNER
+.spinner-container {
+    @include flex;
+    position: fixed;
+    z-index: 999;
+
+    width: 100%;
+    height: 100vh;
+
+    background: $form-color;
+    border: 3px solid transparent;
+    animation: hide-spinner 2s forwards;
+    opacity: 0.9;
+
+    .spinner {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+
+        border: 3px solid transparent;
+        border-top-color: $primary-color;
+        border-radius: 50%;
+        animation: show-spinner 2s linear infinite;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            border: 3px solid transparent;
+            border-radius: 50%;
+        }
+
+        //grand arc de cercle
+        &:before {
+            border-top-color: $secondary-color;
+            @include position(-12px);
+            animation: show-spinner 3s linear infinite;
+        }
+
+        //petit arc de cercle
+        &:after {
+            border-top-color: $tertiary-color;
+            @include position(6px);
+            animation: show-spinner 4s linear infinite;
+        }
+    }
+}
+
+@keyframes show-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hide-spinner {
+    0% {
+        opacity: 0.9;
+        height: 100vh;
+    }
+    
+    90% {
+        opacity: 0.9;
+        height: 100vh;
+    }
+    
+    95% {
+        opacity: 0.95;
+        height: 100vh;
+    }
+    
+    100% {
+        opacity: 0;
+        height: 0;
     }
 }

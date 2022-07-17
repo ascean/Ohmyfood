@@ -5,9 +5,11 @@
 
     #restaurant-img {
         height: 400px;
-        // compenser la border du header visible dans le menu
+        // compenser border-bottom du header visible dans le menu
         transform: translateY(-2px);
 
+        //résoud le problème d'affichage des images trop hautes sur écran grand largeur
+        overflow: hidden;
         &>img {
             width: 100%;
             object-fit: cover;
@@ -23,7 +25,7 @@ form {
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
 
-    margin-top: -120px;
+    margin-top: -170px;
     z-index: 9;
 
 }
@@ -36,7 +38,7 @@ form {
     }
 }
 
-.restaurant-container {
+.meal-container {
     margin-bottom: 30px;
 
     h2 {
@@ -44,7 +46,7 @@ form {
         font-weight: 300;
         font-size: 18px;
         padding: 5px 0;
-        margin: 10px 0 0px;
+        margin: 20px 0 0px;
     }
 
     //ligne sous les catégories du menu
@@ -59,34 +61,34 @@ form {
     .meal-type {
         opacity: 0;
     }
-    
-    //animation : apparition progressive des items de menus
-    @for $i from 1 through 3 {
 
+    //animation : apparition progressive des items de menus
+    
+    //items entrées/plats/desserts
+    $delay : 0;
+    
+    @for $i from 1 through 3 {
         //titre entrées / plats / desserts    
         .meal-type:nth-child(#{$i}) {
-            animation: fadein 0.8s ease-in-out forwards;
-        }
+            animation: fadein 0.8s #{$delay}+ms ease-in-out forwards;
 
-        //items entrées/plats/desserts
-        $delay-item : 0;
-
-        @for $j from 1 through 4 {
-            $delay-item : $delay-item +200;
-
-            .restaurant-item:nth-child(#{$j}) {
-                animation: fadein 0.8s #{$delay-item}+ms ease-in-out forwards;
+            //entrées/plats/desserts
+            @for $j from 1 through 4 {
+                .meal-item:nth-child(#{$j}) {
+                    animation: fadein 0.8s #{$delay}+ms ease-in-out forwards;
+                    $delay : $delay + 200;
+                }
             }
         }
     }
 
 }
 
-.restaurant-items {
+.meal-items {
 
     @include flex(column, center, center, 16px);
 
-    .restaurant-item {
+    .meal-item {
         opacity: 0;
         position: relative;
 
@@ -134,53 +136,85 @@ form {
             &:hover {
                 width: 90%;
             }
-
-            &:hover+.check {
-                @include flex(row, center, center, 0);
-                transform: translateX();
-                background-color: lighten(#2c9c81, 35%);
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                width: 15%;
-
-                &>i {
-                    background-color: white;
-                    color: lighten(#2c9c81, 40%);
-                    border-radius: 25px;
-                    width: 20px;
-                    animation: rotate-check 300ms;
-                }
+        }
+        
+        //survol de l'item menu --> apparition de la zone check de droite à gauche
+        &:hover .check {
+            width: 15%;
+            
+            //rotation du check
+            &>i {
+                background-color: white;
+                color: lighten(#2c9c81, 40%);
+                width: 20px;
+                border-radius: 25px;
+                text-align: center;
+                line-height: 20px;
+                margin: 0 auto;
+                animation: rotate-check 300ms;
             }
         }
-
         .price {
             cursor: pointer;
             color: #000000;
             font-size: 0.95rem;
             font-weight: 600;
-
+            
             text-align: center;
             line-height: 74px;
             width: 20%;
             height: 100%;
             padding-bottom: 14px;
         }
-
+        
         .check {
-            @include flex;
+            @include flex(row, center, center, 0);
+            background-color: lighten(#2c9c81, 35%);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
             width: 0px;
             height: 100%;
             transition: width 200ms;
 
             & i {
                 color: transparent;
-                text-align: center;
-                line-height: 20px;
-                margin: 0 auto;
-                width: 20px;
-                height: 20px;
             }
         }
     }
 
+}
+
+//animation fondu de chaque menu
+@keyframes fadein {
+    
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+//animation rotation du check de menu
+@keyframes rotate-check {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

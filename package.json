@@ -4,7 +4,8 @@
   "description": "Transformez une maquette en site web avec HTML & CSS",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css --no-source-map"
+    "sass": "sass --watch ./sass/main.scss:./css/style.css --no-source-map",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed/"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/ascean/projet-p03/issues"
   },
-  "homepage": "https://github.com/ascean/projet-p03#readme"
+  "homepage": "https://github.com/ascean/projet-p03#readme",
+  "browserslist": "last 4 versions"
 }

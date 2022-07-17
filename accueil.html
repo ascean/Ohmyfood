@@ -21,7 +21,7 @@
     <!-- chargement icônes Font Awesome, utilisation d'un cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 
-    <title>Accueil</title>
+    <title>Ohmyfood</title>
 
 </head>
 
@@ -61,10 +61,10 @@
             <div id="function-items">
 
                 <div class="function-item">
-                    <div class="function-number">
-                        <p>1</p>
-                    </div>
                     <div class="function-btn">
+                        <div class="function-number">
+                            <p>1</p>
+                        </div>
                         <div class="function-btn-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
@@ -105,12 +105,12 @@
 
             <h2>Restaurants</h2>
 
-            <div id="restaurant-items">
-                <card class="restaurant-item">
+            <div id="meal-items">
+                <div class="meal-item">
                     <a href="/restaurant1.html">
                         <div class="restaurant-img">
                             <img src="/images/restaurants/la-palette-du-gout.jpg" alt="La palette du goût">
-                            <button class="restaurant-btnnew">Nouveau</button>
+                            <div class="restaurant-btnnew">Nouveau</div>
                         </div>
                         <div class="restaurant-infos">
                             <div class="restaurant-name">
@@ -119,27 +119,20 @@
                             </div>
                             <div class="restaurant-favori">
                                 <div class="heart">
-                                    <div class="heart-empty">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                    </div>
-                                    <div class="heart-blanc">
-
-                                    </div>
-                                    <div class="heart-full">
-                                        <i class="fa-solid fa-heart heart-full"></i>
-
-                                    </div>
+                                    <div class="heart--empty fa-regular fa-heart"></div>
+                                    <div class="heart--white"></div>
+                                    <div class="heart--full fa-solid fa-heart"></div>
                                 </div>
                             </div>
                         </div>
                     </a>
-                </card>
+                </div>
 
-                <card class="restaurant-item">
+                <div class="meal-item">
                     <a href="/restaurant2.html">
                         <div class="restaurant-img">
                             <img src="/images/restaurants/la-note-enchantee.jpg" alt="La note enchantée">
-                            <button class="restaurant-btnnew">Nouveau</button>
+                            <div class="restaurant-btnnew">Nouveau</div>
                         </div>
                         <div class="restaurant-infos">
                             <div class="restaurant-name">
@@ -148,28 +141,28 @@
                             </div>
                             <div class="restaurant-favori">
                                 <div class="heart">
-                                    <div class="heart-empty">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                    <div class="heart--empty">
+                                        <i class="fa-regular fa-heart"></i>
                                     </div>
-                                    <div class="heart-blanc">
+                                    <div class="heart--white">
 
                                     </div>
-                                    <div class="heart-full">
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    <div class="heart--full">
+                                        <i class="fa-solid fa-heart"></i>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
-                </card>
+                </div>
 
 
-                <card class="restaurant-item">
+                <div class="meal-item">
                     <a href="/restaurant3.html">
                         <div class="restaurant-img">
                             <img src="/images/restaurants/a-la-francaise.jpg" alt="A la française">
-                            <button class="restaurant-btnnew">Nouveau</button>
+                            <div class="restaurant-btnnew">Nouveau</div>
                         </div>
                         <div class="restaurant-infos">
                             <div class="restaurant-name">
@@ -178,14 +171,14 @@
                             </div>
                             <div class="restaurant-favori">
                                 <div class="heart">
-                                    <div class="heart-empty">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                    <div class="heart--empty">
+                                        <i class="fa-regular fa-heart"></i>
                                     </div>
-                                    <div class="heart-blanc">
+                                    <div class="heart--white">
 
                                     </div>
-                                    <div class="heart-full">
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    <div class="heart--full">
+                                        <i class="fa-solid fa-heart"></i>
 
                                     </div>
                                 </div>
@@ -193,12 +186,12 @@
                         </div>
 
                     </a>
-                </card>
-                <card class="restaurant-item">
+                </div>
+                <div class="meal-item">
                     <a href="/restaurant4.html">
                         <div class="restaurant-img">
                             <img src="/images/restaurants/le-delice-des-sens.jpg" alt="Le délice des sens">
-                            <button class="restaurant-btnnew">Nouveau</button>
+                            <div class="restaurant-btnnew">Nouveau</div>
                         </div>
                         <div class="restaurant-infos">
                             <div class="restaurant-name">
@@ -207,21 +200,21 @@
                             </div>
                             <div class="restaurant-favori">
                                 <div class="heart">
-                                    <div class="heart-empty">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                    <div class="heart--empty">
+                                        <i class="fa-regular fa-heart"></i>
                                     </div>
-                                    <div class="heart-blanc">
+                                    <div class="heart--white">
 
                                     </div>
-                                    <div class="heart-full">
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    <div class="heart--full">
+                                        <i class="fa-solid fa-heart"></i>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
-                </card>
+                </div>
 
             </div>
 
@@ -230,23 +223,23 @@
     </section>
 
     <footer>
-
-        <div id="footer-restaurant-name">ohmyfood</div>
-        <nav>
-            <ul>
-                <li>
-                    <span class="footer-icon"><i class="fa-solid fa-utensils"></i></span>
-                    <span>Proposer un restaurant</span>
-                </li>
-                <li>
-                    <span class="footer-icon"><i class="fa-solid fa-handshake-angle"></i></span>
-                    <span>Devenir partenaire</span>
-                </li>
-                <li>Mentions légales</li>
-                <li><a href="mailto:test@test.com">Contact</a></li>
-            </ul>
-        </nav>
-
+        <div id="footer-container">
+            <div id="footer-restaurant-name">ohmyfood</div>
+            <nav>
+                <ul>
+                    <li>
+                        <span class="footer-icon"><i class="fa-solid fa-utensils"></i></span>
+                        <span>Proposer un restaurant</span>
+                    </li>
+                    <li>
+                        <span class="footer-icon"><i class="fa-solid fa-handshake-angle"></i></span>
+                        <span>Devenir partenaire</span>
+                    </li>
+                    <li>Mentions légales</li>
+                    <li><a href="mailto:test@test.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </footer>
 </body>
 
