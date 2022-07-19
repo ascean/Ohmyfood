@@ -136,7 +136,8 @@ form {
             }
         }
         
-        //survol de l'item menu --> apparition de la zone check de droite à gauche
+        //survol de l'item menu --> 
+        //apparition de la zone check de droite à gauche
         &:hover .check {
             width: 15%;
             
@@ -214,5 +215,24 @@ form {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen  and (min-width:768px) and (max-width: 1240px) {
+    #main-section #restaurant-img {
+        height: 500px;
+    }
+
+    form {
+        margin-top: -100px;
+    }
+}
+
+@media screen  and (min-width: 1240px) {
+    #main-section #restaurant-img {
+        height: 600px;
+    }
+    form {
+        margin-top: -50px;
     }
 }

@@ -267,3 +267,37 @@
         height: 0;
     }
 }
+
+@media screen  and (min-width:768px) and (max-width: 1240px) {
+
+    #meal-items  {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width:100%;
+
+        .meal-item {
+            width: 47%;
+            margin: 0;
+
+        }
+    }
+
+}
+
+@media screen  and (min-width:1240px) {
+
+    #meal-items  {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width:100%;
+
+        .meal-item {
+            width: 22%;
+            margin: 0;
+
+        }
+    }
+
+}

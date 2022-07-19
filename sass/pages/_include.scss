@@ -1,3 +1,4 @@
+
 //COEURS
 .heart {
     @include flex(column, center, center, 0);
@@ -22,7 +23,8 @@
             opacity: 0;
         }
 
-        //au survol du coeur vide, on réduit la hauteur du div blanc
+        //au survol du coeur vide, on réduit la hauteur 
+        //du div blanc
         //pour laisser apparaitre le coeur de couleur
         &:hover+.heart--white {
             height: 0%;
