@@ -32,14 +32,12 @@ a {
 }
 
 #top-section, footer {
-  min-width: 400px;
   margin: 0 auto;
   width: 100%;
 }
 
 #main-section, #footer-container {
   max-width: 1420px;
-  min-width: 400px;
   margin: 0 auto;
   width: 100%;
 }
@@ -80,7 +78,6 @@ header {
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   padding: 0px 20px;
-  min-width: 400px;
   max-width: 1420px;
   width: 100%;
   margin: 0 auto;
@@ -225,11 +222,19 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 2px;
   width: 100%;
   height: 55px;
   background-color: rgb(234, 234, 234);
   margin-bottom: 30px;
+}
+#top-section-container input {
+  width: 160px;
+  padding-left: 10px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  text-align: left;
 }
 #top-section h1 {
   margin: 0 5%;
@@ -516,7 +521,7 @@ header {
   object-fit: cover;
 }
 
-form {
+#restaurant-form {
   background-color: rgb(246, 246, 246);
   width: 100%;
   padding: 15px 20px 60px;
@@ -728,11 +733,16 @@ form {
     transform: rotate(360deg);
   }
 }
+@media screen and (max-width: 400px) {
+  #restaurant-form {
+    margin-top: -260px;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 1240px) {
   #main-section #restaurant-img {
     height: 500px;
   }
-  form {
+  #restaurant-form {
     margin-top: -100px;
   }
 }
@@ -740,7 +750,7 @@ form {
   #main-section #restaurant-img {
     height: 600px;
   }
-  form {
+  #restaurant-form {
     margin-top: -50px;
   }
 }

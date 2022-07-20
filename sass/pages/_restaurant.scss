@@ -17,7 +17,7 @@
     }
 }
 
-form {
+#restaurant-form {
     background-color: $form-color;
     width: 100%;
     padding: 15px 20px 60px;
@@ -56,6 +56,7 @@ form {
         height: 5px;
         margin-bottom: 10px;
         width: 50px;
+    
     }
     
     .meal-type {
@@ -218,12 +219,19 @@ form {
     }
 }
 
+@media screen  and (max-width:400px) {
+
+    #restaurant-form {
+        margin-top: -260px;
+    }
+}
+
 @media screen  and (min-width:768px) and (max-width: 1240px) {
     #main-section #restaurant-img {
         height: 500px;
     }
 
-    form {
+    #restaurant-form {
         margin-top: -100px;
     }
 }
@@ -232,7 +240,7 @@ form {
     #main-section #restaurant-img {
         height: 600px;
     }
-    form {
+    #restaurant-form {
         margin-top: -50px;
     }
 }
