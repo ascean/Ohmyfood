@@ -24,5 +24,4 @@ Ce projet présente la dynamisation d'une page web avec des animations CSS
 
 ## Lancement de projet
 
-Télécharger le projet et lancer le fichier index.html
-
+https://ascean.github.io/Ohmyfood/
